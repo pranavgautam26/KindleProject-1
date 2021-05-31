@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/share/HomeLayout.cshtml";
+}
+
+@model DTO.GeneralDTO
+        <div class="vizew-archive-list-posts-area mb-80">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <!-- Archive Catagory & View Options -->
+                <div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
+                    <!-- Catagory -->
+                    <div class="archive-catagory">
+                        <h4><i class="" aria-hidden="true"></i> Result of <strong>@Model.SearchText</strong></h4>
+                    </div>
+                    <!-- View Options -->
+
+                </div>
+
+
+                <br />
+
+                @foreach (var item in Model.CategoryPostList)
+                {
+                    <div class="single-post-area style-2">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-6">
+                                <!-- Post Thumbnail -->
+                                <div class="post-thumbnail">
+                                    <a href="@Url.RouteUrl("PostDetail",new { @ID=item.ID, @CategoryName=BLL.SeoLink.GenerateUrl(item.CategoryName), @SeoLink=item.SeoLink})"> <img src="~/Areas/Admin/Content/PostImage/@item.ImagePath" alt=""></a>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <!-- Post Content -->
+                                <div class="post-content mt-0">
+                                    <a href="#" class="post-cata cata-sm cata-success">@item.CategoryName</a>
+                                    <a href="@Url.RouteUrl("PostDetail",new { @ID=item.ID, @CategoryName=BLL.SeoLink.GenerateUrl(item.CategoryName), @SeoLink=item.SeoLink})" class="post-title mb-2">@item.Title</a>
+                                    <div class="post-meta d-flex align-items-center mb-2">
+                                        <a href="#" class="post-author">Professional's</a>
+                                        <i class="fa fa-circle" aria-hidden="true"></i>
+                                        <a href="#" class="post-date">@item.AddDate.ToString("dd.MM.yyyy dddd")</a>
+                                    </div>
+                                    <p class="mb-2">@item.ShortContent</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <!-- Single Post Area -->
+                <!-- Single Post Area -->
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+

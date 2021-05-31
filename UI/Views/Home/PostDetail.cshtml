@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "PostDetail";
+    Layout = "~/Views/share/HomeLayout.cshtml";
+}
+@model DTO.GeneralDTO
+<!-- ##### Breadcrumb Area Start ##### -->
+
+<!-- ##### Breadcrumb Area End ##### -->
+<!-- ##### Pager Area Start ##### -->
+<div class="featured-post-slides owl-carousel mb-30">
+    @foreach (var item in Model.PostDetail.PostImages)
+    {
+
+        <div class="single-feature-post video-post bg-img" style="background-image: url(/Areas/Admin/Content/PostImage/@item.ImagePath);width:80% !important; margin:0 auto !important;">
+            <!-- Play Button -->
+            <!-- Post Content -->
+            <!-- Video Duration -->
+        </div>
+    }
+    <!-- Single Feature Post -->
+    <!-- Single Feature Post -->
+
+</div>
+<!-- ##### Pager Area End ##### -->
+<!-- ##### Post Details Area Start ##### -->
+<section class="post-details-area mb-80">
+    <div class="container">
+        
+
+        <div class="row justify-content-center">
+            <!-- Post Details Content Area -->
+            <div class="col-12 col-lg-8">
+                <div class="post-details-content d-flex">
+                    <!-- Post Share Info -->
+                    <div class="post-share-info">
+                        <p>Share</p>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="thumb-tack"><i class="fa fa-thumb-tack"></i></a>
+                    </div>
+
+                    <!-- Blog Content -->
+                    <div class="blog-content">
+
+                        <!-- Post Content -->
+                        <div class="post-content mt-0">
+                            <a href="#" class="post-cata cata-sm cata-danger">@Model.PostDetail.CategoryName</a>
+                            <a href="#" class="post-cata cata-sm cata-danger">@Model.PostDetail.Language</a>
+                            <a href="#" class="post-title mb-2">@Model.PostDetail.Title</a>
+
+                            <div class="d-flex justify-content-between mb-30">
+                                <div class="post-meta d-flex align-items-center">
+                                    <a href="#" class="post-author">Professional's</a>
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                    <a href="#" class="post-date">@Model.PostDetail.AddDate.ToString("dd.MM.yyyy dddd")</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        @Html.Raw(Model.PostDetail.PostContent)
+
+                        <!-- Post Tags -->
+                        <div class="post-tags mt-30">
+                            <ul>
+                                <li><a href="#">tag1</a></li>
+                                <li><a href="#">tag2</a></li>
+                                <li><a href="#">tag3</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Post Author -->
+                        <div class="vizew-post-author d-flex align-items-center py-5">
+                            <div class="post-author-thumb">
+                                <img src="img/bg-img/30.jpg" alt="">
+                            </div>
+                            <div class="post-author-desc pl-4">
+                                <a href="#" class="author-name">Professional's</a>
+                                <p>
+                                    Hi there,
+                                   
+                                    By 2021, there will be...
+                                </p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Related Post Area -->
+                        
+
+                        <!-- Comment Area Start -->
+                        
+
+                        <!-- Post A Comment Area -->
+                        
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Widget -->
+            
+        </div>
+    </div>
+</section>
+<!-- ##### Post Details Area End ##### -->

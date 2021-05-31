@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "CategoryPostList";
+    Layout = "~/Views/share/HomeLayout.cshtml";
+}
+
+@model DTO.GeneralDTO
+<!-- ##### Archive List Posts Area Start ##### -->
+<div class="vizew-archive-list-posts-area mb-80">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <!-- Archive Catagory & View Options -->
+                <div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
+                    <!-- Catagory -->
+                    <div class="archive-catagory">
+                        <h4><i class="" aria-hidden="true"></i>@Model.CategoryName </h4>
+                    </div>
+                    <!-- View Options -->
+                    <div class="top-meta-data d-flex align-items-center justify-content-end">
+                        <div class="top-search-area">
+                            <form action="/search1" method="post">
+                                <input type="search" name="SearchText1"id="topSearch" placeholder="Search...">
+                                <input type="search" name="CategoryNameS" value="@Model.CategoryName" />
+                                <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    
+
+
+                </div>
+                @foreach (var item in Model.CategoryPostList)
+                {
+                    <div class="single-post-area style-2">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-6">
+                                <!-- Post Thumbnail -->
+                                <div class="post-thumbnail">
+                                    <a href="@Url.RouteUrl("PostDetail",new { @ID=item.ID, @CategoryName=BLL.SeoLink.GenerateUrl(item.CategoryName), @SeoLink=item.SeoLink})"><img src="~/Areas/Admin/Content/PostImage/@item.ImagePath" alt=""></a>
+
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <!-- Post Content -->
+                                <div class="post-content mt-0">
+                                    @*<a href="@Url.RouteUrl("PostDetail",new { @ID=item.ID, @CategoryName=BLL.SeoLink.GenerateUrl(item.CategoryName), @SeoLink=item.SeoLink})" class="post-cata cata-sm cata-success">Sports</a>*@
+                                    <a href="@Url.RouteUrl("PostDetail",new { @ID=item.ID, @CategoryName=BLL.SeoLink.GenerateUrl(item.CategoryName), @SeoLink=item.SeoLink})" class="post-title mb-2">@item.Title</a>
+                                    <div class="post-meta d-flex align-items-center mb-2">
+                                        <a href="#" class="post-author">Professional's</a>
+                                        <i class="fa fa-circle" aria-hidden="true"></i>
+                                        <a href="#" class="post-date">@item.AddDate.ToString("dd.MM.yyyy dddd")</a>
+                                    </div>
+                                    <p class="mb-2">@item.ShortContent</p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <!-- Single Post Area -->
+                <!-- Pagination -->
+               
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+<!-- ##### Archive List Posts Area End ##### -->

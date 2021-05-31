@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/share/HomeLayout.cshtml";
+}
+@model DTO.GeneralDTO
+<div class="vizew-archive-list-posts-area mb-80" >
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="archive-catagory-view mb-50 d-flex align-items-center justify-content-between">
+                    <div class="top-meta-data d-flex align-items-center justify-content-end">
+                        <br />
+                        <form action="/searchindex" method="post">
+                            <label>Location:</label>
+                            <input type="search" name="SearchText2" id="topSearch" placeholder="Search...">
+
+                            <label>Choose Profession:</label>
+                            <select name="CategoryNameI">
+                                <option value="Engineer">Engineer</option>
+                                <option value="Doctor">Doctor</option>
+                                <option value="Electrician">Electrician</option>
+                            </select>
+                            <button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                    
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>
